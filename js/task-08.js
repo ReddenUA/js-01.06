@@ -11,9 +11,10 @@ function onFormSubmit(event) {
 
   console.log(formData);
   
-  formData.forEach((value, name) => {
+  formData.forEach((value, name, input) => {
     console.log(`name`, name );
     console.log(`value`, value);
+  
   });
 
   document.getElementById("login-js").reset();
