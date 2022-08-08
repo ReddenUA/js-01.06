@@ -2,27 +2,19 @@
 
 const form = document.querySelector('.login-form')
 
-form.addEventListener('submit', onFormSubmit );
+form.addEventListener("submit", onFormSubmit );
 
 function onFormSubmit(event) {
     event.preventDefault();
 
-  const formData =  new FormData(event.currentTarget);
+  const {
+    elements: { email, password},
+  } = event.currentTarget;
 
-  console.log(formData);
-  
-  formData.forEach((value, name, input) => {
-    console.log(`name`, name );
-    console.log(`value`, value);
-  
-  });
-
-  document.getElementById("login-js").reset();
-}
-const inputs = document.querySelectorAll('input');
-
-inputs.forEach(function (input) {
-  if (input.value.trim() === '') { 
-  alert(" Все поля должны быть заполнены")
+  if (email.value === "" || password.value === ""){
+    return alert("Все поля должны быть заполнены");
   }
-});
+
+  console.log(`Email: ${email.value}, Password: ${password.value}`);
+  event.currentTarget.reset();
+}
